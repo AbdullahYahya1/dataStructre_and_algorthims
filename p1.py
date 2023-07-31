@@ -1,14 +1,13 @@
-from typing import List
-
 class Solution:
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
-        counter = [0] * len(temperatures)
-        stack=[] #[i , temp]
-        for i , key in enumerate(temperatures):
-            while stack and stack[-1][1] < key:
-                index , temp = stack.pop()
-                length = i - index 
-                counter[index] = length
-            stack.append([i , key])
-        return counter 
-print(Solution().dailyTemperatures([1,2,0,2,4,5]))
+    def isPalindrome(self, s: str) -> bool:
+        s= [char.lower() for char in s if char.isalnum()]
+        if not s:
+            return True
+        left ,right= 0 , len(s)-1
+        while left<=right:
+            if (s[left] != s[right]):
+                return False
+            left+=1
+            right-=1
+        return True
+print(Solution().isPalindrome('A man, a plan, a canal: Panama'))
