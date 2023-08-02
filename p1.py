@@ -1,14 +1,14 @@
 from typing import List
-
 class Solution:
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
-        counter = [0] * len(temperatures)
-        stack=[] #[i , temp]
-        for i , key in enumerate(temperatures):
-            while stack and stack[-1][1] < key:
-                index , temp = stack.pop()
-                length = i - index 
-                counter[index] = length
-            stack.append([i , key])
-        return counter 
-print(Solution().dailyTemperatures([1,2,0,2,4,5]))
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        left = 0 
+        right = len(numbers)-1
+        while(left < right):
+            if(numbers[left] + numbers[right]  < target):
+                left+=1
+            elif(numbers[left] + numbers[right]  > target):
+                right-=1
+            else:
+                return [left+1 , right+1]
+
+print(Solution().twoSum([1,2,3,4,5,6,7],11))
