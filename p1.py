@@ -1,19 +1,25 @@
 from typing import Optional
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
         self.next = next
+        self.random = random
+
 class Solution:
-    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        dummy_head = ListNode(next=head)
-        curr=head
-        while(n>0):
-            n-=1
-            curr=curr.next
-        pre =dummy_head
-        while(curr):
-            curr=curr.next
-            pre=pre.next
-        pre.next=pre.next.next
-        return dummy_head.next
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        if not head:
+            return None
+        dic={}
+        cur = head
+        while cur :
+            dic[cur] = Node(x=cur.val)
+            cur=cur.next
+        cur = head
+        while cur :
+            dic[cur].random=dic[cur.random] if cur.random else None  
+            dic[cur].next=dic[cur.next] if cur.next else None 
+            cur=cur.next
+        
+        return dic[head]
+        

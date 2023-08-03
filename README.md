@@ -1,2 +1,2 @@
 # dataStructre_and_algorthims
-https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+https://leetcode.com/problems/copy-list-with-random-pointer/description/
