@@ -6,34 +6,13 @@ class ListNode:
         self.val = val
         self.next = next
 class Solution:
-    def reorderList(self, head: Optional[ListNode]) -> None:
-        #SPLIT
-        slow , fast = head , head.next
-        while(fast and fast.next):
-            slow = slow.next
-            fast=fast.next.next 
-        half=slow.next
-        slow.next=None
-
-
-        #TAKE OPSIT 
-        curr , pre= half , None
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+        curr = head
         while(curr):
-            swap=curr.next
-            curr.next=pre
-            pre=curr
-            curr=swap
+            print(curr.val)
+            curr=curr.next
+        pass 
 
-        #it is opesit and stored in half 
-        #now we will mearge them to make new arr 
-        curr , half = head , pre 
-        while(half):
-            swap = curr.next
-            swaph = half.next
-            curr.next=half
-            half.next= swap
-            curr=swap
-            half=swaph
             
 
 
@@ -56,7 +35,7 @@ if __name__ == "__main__":
     input_list = [1, 2, 3, 4, 5]
     linked_list = list_to_linked_list(input_list)
     solution = Solution()
-    solution.reorderList(linked_list)
+    solution.removeNthFromEnd(linked_list , n=1)
     output_list = linked_list_to_list(linked_list)
     print("Input List:", input_list)
     print("Modified List:", output_list)
