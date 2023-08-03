@@ -1,5 +1,4 @@
 from typing import Optional
-import math
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -8,6 +7,13 @@ class ListNode:
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         curr = head
+        while(n):
+            n-=1 
+            curr=curr.next
+            print(n)
+        print()
+        print()
+
         while(curr):
             print(curr.val)
             curr=curr.next
