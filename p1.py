@@ -1,21 +1,18 @@
 from typing import Optional , List
 
 class Solution:
-    def findDuplicate(self, nums: List[int]) -> int:
-        slow , fast = 0 ,  0 
+    def maxProfit(self, prices: List[int]) -> int:
+        l , r=  0 ,1 
+        maxVal=0
         while True:
-            slow=nums[slow] 
-            fast=nums[nums[fast]] 
-            if(slow==fast):
-                break
-        
-        slow2 = 0
-
-        while(True):
-            slow2= nums[slow2]
-            slow= nums[slow]
-            if slow2 == slow:
-                return slow 
+            if(prices[r]-prices[l]+1 < 0):
+                r+=1 
+                l+=1 
+                continue
             
-
-print(Solution().findDuplicate([1,3,4,2,2]))
+            maxVal = max(prices[r]-prices[l] , maxVal )
+            r+=1 
+            if r == len(prices):
+                break
+        return maxVal
+print(Solution().maxProfit([7,1,5,3,6,4]))
