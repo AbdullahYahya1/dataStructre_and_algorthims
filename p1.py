@@ -13,5 +13,3 @@ class Solution:
             maxS = max(maxS ,len(seen))
 
         return maxS
-                
-            
