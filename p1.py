@@ -1,16 +1,21 @@
-from typing import Optional
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from typing import Optional , List
 
 class Solution:
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
-        slwo , fast = head,  head
+    def findDuplicate(self, nums: List[int]) -> int:
+        slow , fast = 0 ,  0 
+        while True:
+            slow=nums[slow] 
+            fast=nums[nums[fast]] 
+            if(slow==fast):
+                break
+        
+        slow2 = 0
 
-        while fast and fast.next:
-            fast = fast.next.next 
-            slwo = slwo.next
-            if slwo == fast:
-                return True
-        return False
+        while(True):
+            slow2= nums[slow2]
+            slow= nums[slow]
+            if slow2 == slow:
+                return slow 
+            
+
+print(Solution().findDuplicate([1,3,4,2,2]))
