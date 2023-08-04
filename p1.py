@@ -11,5 +11,4 @@ class Solution:
             seen.add(s[r])
             r+=1 
             maxS = max(maxS ,len(seen))
-
         return maxS
