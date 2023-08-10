@@ -7,7 +7,7 @@ class Solution:
             if(end == n and start == n):
                 res.append(s)
                 return
-            if(start < n):
+            if(start < n) :
                 backtrack(start+1 , end , s+'(')
             
             if(end < start):
