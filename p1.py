@@ -13,5 +13,5 @@ class Solution:
             if(end < start):
                 backtrack(start , end+1 , s+')')
         backtrack()
-        
+        return res 
 print( Solution().generateParenthesis(3))
